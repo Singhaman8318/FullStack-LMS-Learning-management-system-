@@ -35,7 +35,7 @@ console.log("lecture id when   remove lcture call in  display lecture " , lectur
      console.log("lecture id when   remove lcture call in  display lecture " , lectureId);
 
     //  await dispatch(removeLecture({courseId:courseId,lectureId:lectureId}))
-    await  dispatch(removeLecture(courseId,lectureId))
+    await  dispatch(removeLecture({courseId,lectureId}))
        await dispatch(getAllLectures(courseId))
      
   }
@@ -44,33 +44,45 @@ return (
 
 <HomeLayout>
   <div className="flex flex-col min-h-screen bg-gray-900 text-white">
-    
+ 
   <header className="sticky top-0 z-50 bg-gray-900 border-b border-white px-4 py-3 shadow-lg">
-  <nav className="relative flex items-center justify-center">
+  <nav className="flex flex-wrap items-center justify-between gap-4">
 
-    {/* Back Icon - Left */}
-    <Link to="/course" className="absolute left-4">
-      <MdArrowBack size={24} className="text-white cursor-pointer" />
-    </Link>
+    
 
-    {/* Logo - 10rem right of back icon */}
-    <div className="absolute left-[10rem]">
-      <img src="/logo.png" alt="Logo" className="h-8" />
+              {/* Back Icon and Logo */}
+          <div className="flex items-center gap-4 ml-5">
+            {/* Back Button */}
+            <Link to="/courses" className="text-white hover:text-primary transition">
+              <MdArrowBack size={24} className="cursor-pointer" />
+            </Link>
+
+            {/* Logo */}
+            <div className="sm:mr-3">
+              <img src="/logo.png" alt="Logo" className="h-8" />
+            </div>
+          </div>
+
+
+    {/* Logo & Title - Centered */}
+    <div className="flex-1 flex  flex-col sm:flex-row sm:items-center sm:justify-center text-center">
+      
+      {/* Course Title */}
+      <h1 className="text-base sm:text-lg font-semibold text-white mt-1 sm:mt-0">
+        Course:
+        <span className="text-orange-500 underline ml-1">
+          {state?.title || "Untitled"}
+        </span>
+      </h1>
     </div>
 
-    {/* Course Title - Center */}
-    <h1 className="text-base sm:text-lg font-semibold text-white">
-      Course: <span className="text-orange-500 underline ml-1">{state?.title || "Untitled"}</span>
-    </h1>
-
-    {/* Profile Icon - Right */}
-    <Link to="/profile" className="absolute right-4 text-2xl text-gray-300 hover:text-cyan-400 transition">
-      <BsPersonCircle className="w-8 h-8" />
+    {/* Profile Icon */}
+    <Link to="/profile" className="text-2xl text-gray-300 hover:text-cyan-400 transition">
+      <BsPersonCircle className="w-8 h-8 mr-20" />
     </Link>
 
   </nav>
 </header>
-
 
 
 
@@ -101,7 +113,7 @@ return (
                   className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-lg transition-all text-red-500 hover:text-red-600"
                   title="Delete Lecture"
                 >
-                  <AiOutlineDelete size={18} />
+                  <AiOutlineDelete size={24} className='cursor-pointer hover:size-8 transition-all ease-in-out duration-200' />
                 </button>
               )}
             </li>
@@ -150,6 +162,8 @@ return (
     </div>
   </div>
 </HomeLayout>
+
+
 
 );
 }  

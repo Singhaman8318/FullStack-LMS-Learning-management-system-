@@ -58,13 +58,14 @@ export  const getAllLectures=createAsyncThunk("/course/getLectures",async(course
 
     export const removeLecture=createAsyncThunk("courses/remove / ",async(data)=>{
           try {
-               const response = axiosInstance.delete(
+               const response =  axiosInstance.delete(
                     `/v1/course/lecture/${data.courseId}/${data.lectureId}`);
                                  toast.promise(response, {
                     loading:"Deleting the lecture",
                     success:"Lecture delted successfully",
                     error:"failed to delte the lecture "
                })
+               return (await response).data;
           } catch (error) {
                return toast.error(error?.response?.data?.message)
           }
@@ -83,6 +84,13 @@ const LectureSlice=createSlice({
           .addCase(addLecture.fulfilled ,(state,action)=>{
                 console.log("action in add lcture ",action);
                 state.lectures=action?.payload?.course?.lectures ;
+          })
+          .addCase(removeLecture.fulfilled ,(state,action)=>{
+               const{lectureId}=action.payload;
+
+               console.log("Lecture id in addcase whne delting ",lectureId);
+               
+               state.lectures=state.lectures.filter((lecture)=>lecture._id !==lectureId)
           })
       }
 })
