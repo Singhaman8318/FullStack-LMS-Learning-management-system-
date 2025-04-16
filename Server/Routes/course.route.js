@@ -33,6 +33,6 @@ router.route('/:id')
 
 // Route for removing a lecture by ID
 router.route('/lecture/:courseId/:lectureId')
-  .delete(isLoggedIn, authorisedRole('ADMIN'), removeLectureById);
+  .delete(isLoggedIn, authorisedRole('ADMIN'),removeLectureById);
 
 export default router;

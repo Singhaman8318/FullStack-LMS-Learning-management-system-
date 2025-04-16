@@ -232,7 +232,7 @@ import fs from 'fs/promises'
          
          const removeLectureById=async(req,res,next)=>{
               try {
-                const {courseId , lectureId}=req.query;
+                const {courseId , lectureId}=req.params;
 
              console.log("Remove lecture  courseID",courseId );
              console.log("Remove lecture  lecture id " , lectureId);
@@ -266,9 +266,13 @@ import fs from 'fs/promises'
                  // now count the length of the lecture 
 
                  course.numberOfLectures=course.lectures.length;
+
+                 // save the lecture after the delted 
+                 await course.save();
                 res.status(200).json({
                   success:true,
-                  message:"Lecture removed successfully"
+                  message:"Lecture removed successfully",
+                  lectureId:lectureId  // return from here to manage the state in fontend when delete the lecture 
                 })
               } catch (error) {
                 console.log("Error in deleting the lecture ", error.message);
