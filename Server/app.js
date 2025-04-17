@@ -5,6 +5,8 @@ import { config } from 'dotenv';
 import morgan from 'morgan';
 import errorMiddleware from './Middleware/error.midlleware.js';
 import paymentRoutes from './Routes/payment.route.js'
+import path from 'path';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app=express();
 config();
 
@@ -19,6 +21,15 @@ app.use(
     })
   );
 
+
+  // server React bulid static files 
+
+  app.use(express.static(path.join(__dirname,"../Clinet-side/build")));
+
+  //Catch all-route for react 
+  app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname, "../Client-side/build" , 'index.html'));
+  })
 // app.use(cors())
 app.use(express.json())
 

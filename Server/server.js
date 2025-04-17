@@ -1,6 +1,6 @@
 import app from './app.js'
 import connectionDb from './config/dbConnection.js';
-const PORT=process.env.PORT||5003;
+const PORT=process.env.PORT||5014;
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay';
 import dotenv from 'dotenv';
