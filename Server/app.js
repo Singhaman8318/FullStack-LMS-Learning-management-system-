@@ -7,13 +7,21 @@ import errorMiddleware from './Middleware/error.midlleware.js';
 import paymentRoutes from './Routes/payment.route.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+
 const app=express();
 config();
 
-// console.log("course route is load", courseRoutes);
+                                        // enable path resolution for ES modules
+                                        const __filename = fileURLToPath(import.meta.url);
+                                        const __dirname = path.dirname(__filename);
 
+                                        // serve static files from the frontend build 
+                                        app.use(express.static(path.join(__dirname,"../Client-side/dist")))
+
+                                        app.get('*',(req,res)=>{
+                                          res.sendFile(path.join(__dirname, "../Clinet-side/dist/index.html"))
+                                        });
 
 //  for connecting with frontend 
 app.use(
@@ -24,15 +32,7 @@ app.use(
   );
 
 
-  // server React bulid static files 
-
-  // app.use(express.static(path.join(__dirname,"../Client-side/build")));
-
-  //Catch all-route for react 
-  // app.get("*",(req,res)=>{
-  //   res.sendFile(path.join(__dirname, "../Client-side/build", "index.html"));
-  // })
-// app.use(cors())
+  
 app.use(express.json())
 
             app.use(cookieParser())  // for parsing the  token cookie

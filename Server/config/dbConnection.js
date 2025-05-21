@@ -5,7 +5,9 @@ mongoose.set('strictQuery', false)  // for unkwon query siplmy move
 const connectionDb=async()=>{
                try {
                 const {connection}=await mongoose.connect(
-                    process.env.MONGO_URL  || `mongodb://127.0.0.1:27017/lms`
+                    process.env.MONGODB_URL  || `mongodb://127.0.0.1:27017/lms`,
+                    console.log("db correctvurl is ",process.env.MONGODB_URL)
+                    
                   )
                    if (connection) {
                     console.log(`Database is successfully connected ${connection.host}`);
