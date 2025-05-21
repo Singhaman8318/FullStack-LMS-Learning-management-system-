@@ -9,6 +9,9 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineDelete } from 'react-icons/ai';
 import {MdArrowBack} from 'react-icons/md'
 import {BsPersonCircle} from 'react-icons/bs'
+// import logo from "../../../Assets/Images/homepageMainImage.png";
+// import logo from "../../../Assets/Images/logos.png";
+
 function DisplayLecture() {
   const dispatch = useDispatch();
   const { state } = useLocation();
@@ -59,7 +62,7 @@ return (
 
             {/* Logo */}
             <div className="sm:mr-3">
-              <img src="/logo.png" alt="Logo" className="h-8" />
+              <img src='' alt="Logo" className="h-8" />
             </div>
           </div>
 
@@ -68,8 +71,8 @@ return (
     <div className="flex-1 flex  flex-col sm:flex-row sm:items-center sm:justify-center text-center">
       
       {/* Course Title */}
-      <h1 className="text-base sm:text-lg font-semibold text-white mt-1 sm:mt-0">
-        Course:
+      <h1 className="text-base sm:text-lg font-semibold text-white mt-1 gap-20 sm:mt-0">
+        Course:  
         <span className="text-orange-500 underline ml-1">
           {state?.title || "Untitled"}
         </span>
