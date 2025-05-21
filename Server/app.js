@@ -1,16 +1,19 @@
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import { config } from 'dotenv';
 import morgan from 'morgan';
 import errorMiddleware from './Middleware/error.midlleware.js';
 import paymentRoutes from './Routes/payment.route.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import dotenv from 'dotenv';
 
 const app=express();
-config();
+dotenv.config();
+
+console.log("frontend url is the app.js", process.env.FRONTEND_URL);
+
+
 
                                         // enable path resolution for ES modules
                                         const __filename = fileURLToPath(import.meta.url);
