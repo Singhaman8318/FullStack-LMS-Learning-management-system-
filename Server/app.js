@@ -15,17 +15,6 @@ console.log("frontend url is the app.js", process.env.FRONTEND_URL);
 
 
 
-                                        // enable path resolution for ES modules
-                                        const __filename = fileURLToPath(import.meta.url);
-                                        const __dirname = path.dirname(__filename);
-
-                                        // serve static files from the frontend build 
-                                        app.use(express.static(path.join(__dirname,"../Client-side/dist")))
-
-                                        app.get('*',(req,res)=>{
-                                          res.sendFile(path.join(__dirname, "../Clinet-side/dist/index.html"))
-                                        });
-
 //  for connecting with frontend 
 app.use(
     cors({
@@ -34,9 +23,22 @@ app.use(
     })
   );
 
+  app.use(express.json())
+
+                                        // enable path resolution for ES modules
+                                        const __filename = fileURLToPath(import.meta.url);
+                                        const __dirname = path.dirname(__filename);
+
+                                        // serve static files from the frontend build 
+                                        app.use(express.static(path.join(__dirname,"../Client-side/dist")))
+
+                                        app.get('*',(req,res)=>{
+                                          res.sendFile(path.join(__dirname, "../Client-side/dist/index.html"))
+                                        });
+
+
 
   
-app.use(express.json())
 
             app.use(cookieParser())  // for parsing the  token cookie
             app.use(morgan('dev'))   // for knowing the request status
