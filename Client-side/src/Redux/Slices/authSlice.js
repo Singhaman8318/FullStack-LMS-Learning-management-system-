@@ -18,7 +18,7 @@ const initialState={
             localStorage.removeItem(storedIsLoggedIn)
             return error;
         }
-    }),
+    })  (),
 
     role:localStorage.getItem('role')
     ,
@@ -32,7 +32,7 @@ const initialState={
         } catch (error) {
             return error
         }
-    })
+    })  ()
 }
 
 
