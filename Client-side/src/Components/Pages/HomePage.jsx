@@ -127,17 +127,13 @@ function HomePage() {
         {/* <div className='absolute  inset-0 z-0'>
           
         </div> */}
-        <div class="flex flex-col justify-center text-center py-12 md:py-20 px-4 sm:px-6 relative z-10">
+        <div class="flex flex-col justify-center text-center py-12 md:py-20 px-4 sm:px-6 relative z-10 ">
           <h2 class="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 text-zinc-900 dark:text-zinc-100 tracking-wide">Start Your Coding Journey</h2>
           <p class="text-base sm:text-xl text-zinc-700 dark:text-zinc-300 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">Learn coding step-by-step with India's most loved programming mentor.</p>
           <div class="flex justify-center">
             <Link to="/login">
-            <button class="inline-flex items-center justify-center gap-2  cursor-pointer
-            whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring 
-            disabled:pointer-events-none disabled:opacity-50 
-            shadow h-9 px-8 py-6 text-lg font-semibold rounded-md 
-            border border-transparent transition-all duration-300 bg-primary text-primary-foreground 
-            hover:bg-primary/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90">Start Now</button>
+            <button class="inline-flex items-center justify-center gap-2  cursor-pointer 
+              bg-primary/90 text-[16px] font-semibold p-4 rounded-2xl  hover:scale-105 transition-transform duration-300 ">Start Now</button>
             </Link>
             </div>
 
