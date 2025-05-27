@@ -3,7 +3,8 @@ import nodemailer from 'nodemailer'
 // this one is come from  nodemailer npm package as it is 
 const sendEmail=async function (email,subject,message) {
       
-    let transporter=nodemailer.createTransport({
+    try {
+          let transporter=nodemailer.createTransport({
         host:process.env.SMTP_HOST,
         port:process.env.SMTP_PORT,
         secure:false,
@@ -11,6 +12,9 @@ const sendEmail=async function (email,subject,message) {
             user:process.env.SMTP_USERNAME,
             pass:process.env.SMTP_PASSWORD
         },
+        tls:{
+            rejectUnauthorized:false
+        }
     });
 
 
@@ -21,7 +25,16 @@ const sendEmail=async function (email,subject,message) {
         to:email,  // actual email 
         subject:subject,  // subject 
         html:message   // html body 
+
     });
+    console.log("info in send email ", info.messageId);
+    
+            return  await info;
+
+    } catch (error) {
+        console.log("error in send email" , error);
+        
+    }
 };
 
 

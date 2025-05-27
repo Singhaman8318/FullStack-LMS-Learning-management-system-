@@ -101,7 +101,7 @@ const login=async(req,res,next)=>{
         .select('+password');
 
         // here the comparePassword we right a genric method in userSchema
-         if (!user || !user.comparePassword(password)) {
+         if (!user || ! await user.comparePassword(password)) {
             return next(new AppError("Email or Password does not match", 400))
          }
          // if user has all credentilas 

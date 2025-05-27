@@ -64,7 +64,7 @@ function EditProfile() {
 
             // disptach the getUserdata function 
             await dispatch(getUserData());
-                navigate('/profile ');
+                navigate('/profile');
          }
 
 // for handle the user input 

@@ -112,16 +112,16 @@ app.use('/ping', (req, res) => {
   res.send("/pong");
 });
 
-// ⚠️ Move static serving AFTER your routes
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// // ⚠️ Move static serving AFTER your routes
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-// Serve frontend
-app.use(express.static(path.join(__dirname, "../Client-side/dist")));
+// // Serve frontend
+// app.use(express.static(path.join(__dirname, "../Client-side/dist")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../Client-side/dist/index.html"));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, "../Client-side/dist/index.html"));
+// });
 
 // 404 fallback for unhandled APIs
 app.all("*", (req, res) => {

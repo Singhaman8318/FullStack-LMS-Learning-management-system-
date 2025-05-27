@@ -18,7 +18,13 @@ function Denied() {
           </p>
           <div className="card-actions mt-4">
             <button
-              onClick={() => navigate(-1)}
+              onClick={()=>{
+                if (window.history.length> 2) {
+                  navigate(-1)
+                }else{
+                  navigate('/') // fallback for home page 
+                }
+              }}
               className="btn btn-error btn-wide btn-outline animate-bounce"
             >
               🔙 Go Back

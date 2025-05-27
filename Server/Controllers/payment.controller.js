@@ -151,7 +151,7 @@ import Payment from '../Models/payment.model.js'
                                     
                           // now update the status of the user 
                           user.subscription.status=unsubscribe.status;
-                        //   user.subscription.status='inactive'
+                          user.subscription.status='inactive'
 
                           // now save it in to the DB 
                           await user.save();
