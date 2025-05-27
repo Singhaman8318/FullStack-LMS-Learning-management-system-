@@ -53,8 +53,13 @@ import HomeLayout from "../Layout/HomeLayout";
 import { Link } from "react-router-dom";
 import Homeimage2 from "../../Assets/Images/homePageMainImage.png";
 import code from "../../Assets/Images/code.jpg";
+import { useSelector } from 'react-redux';
 
 function HomePage() {
+
+    const userRole=useSelector((state)=>state?.auth?.isLoggedIn);
+
+  
   return (
     <HomeLayout>
       <div className="pt-10 text-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 md:px-16 h-auto md:h-[90vh]">
@@ -127,14 +132,23 @@ function HomePage() {
         {/* <div className='absolute  inset-0 z-0'>
           
         </div> */}
-        <div class="flex flex-col justify-center text-center py-12 md:py-20 px-4 sm:px-6 relative z-10 ">
-          <h2 class="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 text-zinc-900 dark:text-zinc-100 tracking-wide">Start Your Coding Journey</h2>
-          <p class="text-base sm:text-xl text-zinc-700 dark:text-zinc-300 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">Learn coding step-by-step with India's most loved programming mentor.</p>
-          <div class="flex justify-center">
-            <Link to="/login">
-            <button class="inline-flex items-center justify-center gap-2  cursor-pointer 
+        <div className="flex flex-col justify-center text-center py-12 md:py-20 px-4 sm:px-6 relative z-10 ">
+          <h2 className="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 text-zinc-900 dark:text-zinc-100 tracking-wide">Start Your Coding Journey</h2>
+          <p className="text-base sm:text-xl text-zinc-700 dark:text-zinc-300 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">Learn coding step-by-step with India's most loved programming mentor.</p>
+          <div className="flex justify-center">
+           
+             {userRole ? <Link to="/courses" >
+
+             <button className="inline-flex items-center justify-center gap-2  cursor-pointer 
+              bg-green-500 text-[16px] font-semibold p-4 rounded-2xl  hover:scale-105 transition-transform duration-300 ">Explore Course </button>
+             </Link> : 
+             
+             <Link to="/login">
+
+             <button className="inline-flex items-center justify-center gap-2  cursor-pointer 
               bg-primary/90 text-[16px] font-semibold p-4 rounded-2xl  hover:scale-105 transition-transform duration-300 ">Start Now</button>
-            </Link>
+             </Link>}
+           
             </div>
 
             </div>

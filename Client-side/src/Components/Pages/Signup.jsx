@@ -208,7 +208,8 @@ function Signup() {
     fullName: '',
     email: '',
     password: '',
-    avatar: ''
+    avatar: '',
+    role:'',
   });
 
   const handleUserInput = (e) => {
@@ -255,7 +256,7 @@ function Signup() {
     formData.append('email', signupData.email);
     formData.append('password', signupData.password);
     formData.append('avatar', signupData.avatar);
-
+    formData.append('role',signupData.role)
     const response = await dispatch(createAccount(formData));
     if (response?.payload?.success) {
       navigate('/login');
@@ -265,7 +266,8 @@ function Signup() {
       fullName: '',
       email: '',
       password: '',
-      avatar: ''
+      avatar: '',
+      role:'',
     });
     setPreviewImage('');
   };
@@ -341,6 +343,18 @@ function Signup() {
                 className="px-3 py-2 bg-white/10 border border-white/30 rounded-xl placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
                 onChange={handleUserInput}
                 value={signupData.password}
+              />
+              <label htmlFor="text" className="text-sm font-semibold">Role</label>
+
+              <input
+                type="text"
+                name="role"
+                id="role"
+                placeholder="Enter the USER Role"
+                required
+                className="px-3 py-2 bg-white/10 border border-white/30 rounded-xl placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
+                onChange={handleUserInput}
+                value={signupData.role}
               />
             </div>
 

@@ -71,7 +71,7 @@ const register=async(req,res,next)=>{
 
       // if user is registred directly done login 
        // if not work set user.getJwtToken()
-       const token=await user.getJwtToken();
+       const token=await user.generateJWTToken();
        res.cookie("token",token,cookieOption)
 
      // if all things is done save it in to the database
@@ -89,7 +89,8 @@ const register=async(req,res,next)=>{
 
 const login=async(req,res,next)=>{
   const {email, password}=req.body;
-
+ console.log("email and password in login ", email , password);
+ 
     try {
         if (!email || !password) {
             return next(new AppError("All fileds must be required",403))
@@ -97,21 +98,20 @@ const login=async(req,res,next)=>{
     
         // find the user based on the email
          // if not work check User.find method  
-        const user=await User.findOne({email,})
-        .select('+password');
+        const user= await User.findOne({ email }).select('+password');
 
         // here the comparePassword we right a genric method in userSchema
-         if (!user || ! await user.comparePassword(password)) {
+         if (!user ||  ! (await  user.comparePassword(password))) {
             return next(new AppError("Email or Password does not match", 400))
          }
          // if user has all credentilas 
          
          // genrate a token 
         // if gooted eror in token so use user.getjwtToken()
-         const token=await user.getJwtToken();
+         const token=await user.generateJWTToken();
             user.password=undefined;
          //once the token is genrated store it in the cookie 
-         res.cookie("token",token,cookieOption);
+         res.cookie('token',token,cookieOption);
     
          res.status(200).json({
             success:true,
