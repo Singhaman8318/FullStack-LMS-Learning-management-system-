@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -38,8 +39,26 @@ console.log("lecture id when   remove lcture call in  display lecture " , lectur
      console.log("lecture id when   remove lcture call in  display lecture " , lectureId);
 
     //  await dispatch(removeLecture({courseId:courseId,lectureId:lectureId}))
-    await  dispatch(removeLecture({courseId,lectureId}))
-       await dispatch(getAllLectures(courseId))
+
+ const icon=await Swal.fire({
+                    title:"Are you sure ?",
+                    text:"You wont able to revert this",
+                    icon:"warning",
+                    showCancelButton:true,
+                    confirmButtonColor: "#d33",
+                     cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!",
+                
+                })
+                  if (icon.isConfirmed) {
+                    const res=   await  dispatch(removeLecture({courseId,lectureId}))
+                      if (res?.payload?.success) {
+                         await dispatch(getAllLectures(courseId))
+                      }
+                  }
+
+    // await  dispatch(removeLecture({courseId,lectureId}))
+    //    await dispatch(getAllLectures(courseId))
      
   }
 return (

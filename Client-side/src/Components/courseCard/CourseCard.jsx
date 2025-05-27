@@ -1,49 +1,5 @@
 
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
 
-// function CourseCard({ data }) {
-//   const navigate = useNavigate();
-
-//   return (
-//     <div
-//     /// send the data in pther compnet in navigate 
-//       onClick={() => navigate("/course/description/" ,{state:{...data}})}
-//       className="card w-80 bg-base-100 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-200"
-//     >
-//       {/* Course Image */}
-//       <figure className="relative">
-//         <img
-//           className="w-full h-48 object-cover rounded-t-xl transition-transform duration-200 hover:scale-105"
-//           src={data?.thumbnail?.secure_url}
-//           alt="Course Thumbnail"
-//         />
-//         <div className="absolute bottom-2 right-2 badge badge-accent text-sm font-semibold">
-//           {data?.category}
-//         </div>
-//       </figure>
-
-//       {/* Course Details */}
-//       <div className="card-body p-4 text-gray-800">
-//         <h2 className="card-title text-lg text-blue-600 line-clamp-2">
-//           {data?.title}
-//         </h2>
-//         <p className="text-sm text-gray-500 line-clamp-2">{data?.description}</p>
-
-//         <div className="flex justify-between text-sm font-semibold mt-2">
-//           <span className="text-cyan-600">📚 {data?.numberoflectures} Lectures</span>
-//           <span className="text-purple-600">👨‍🏫 {data?.createdBy}</span>
-//         </div>
-
-//         <div className="card-actions mt-4">
-//           <button className="btn btn-sm btn-info w-full">Explore Course</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default CourseCard;
 
 
 import React from "react";

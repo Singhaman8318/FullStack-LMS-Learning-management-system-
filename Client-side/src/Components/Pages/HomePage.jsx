@@ -128,7 +128,7 @@ function HomePage() {
         </div>
       </div>
 
-<section className='bg-zinc-200 dark:bg-zinc-50 relative rounded-3xl m-5 '>
+<section className='bg-zinc-400 dark:bg-zinc-50 relative rounded-3xl m-5 '>
         {/* <div className='absolute  inset-0 z-0'>
           
         </div> */}
