@@ -1,6 +1,6 @@
 import app from './app.js'
 import connectionDb from './config/dbConnection.js';
-const PORT=process.env.PORT||5014;
+const PORT = process.env.PORT || 3000;
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay';
 import dotenv from 'dotenv';
@@ -23,5 +23,5 @@ dotenv.config();
   })
 app.listen(PORT ,async()=>{
        await connectionDb();
-       console.log(`App is running at http://localhost:${PORT}`);      
+       console.log(`App is running at:${PORT}`);      
 })
