@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix Server",
+    "start": "npm start --prefix Server"
+  }
+}
