@@ -47,11 +47,14 @@ app.use('/ping', (req, res) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, "../Client-side/dist")));  
+// only in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../Client-side/dist")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../Client-side/dist/index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../Client-side/dist/index.html"));
+  });
+}
 
 // 404 fallback for unhandled APIs
 app.all("*", (req, res) => {

@@ -21,7 +21,7 @@ dotenv.config();
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret:process.env.RAZORPAY_SECRET
   })
-app.listen(PORT ,async()=>{
+app.listen(PORT ,"0.0.0.0",async()=>{
        await connectionDb();
        console.log(`App is running at:${PORT}`);      
 })
