@@ -10,6 +10,9 @@ import paymentRoutes from './Routes/payment.route.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+// Routes
+import userRoutes from './Routes/user.routes.js';
+import courseRoutes from './Routes/course.route.js';
 
 dotenv.config();
 const app = express();
@@ -28,9 +31,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-import userRoutes from './Routes/user.routes.js';
-import courseRoutes from './Routes/course.route.js';
+
 
 app.use('/user/v1', userRoutes);
 app.use('/v1/course', courseRoutes);
