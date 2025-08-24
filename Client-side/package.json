@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+      "install-all": "npm install --workspaces",
+    "build-client": "cd Client-side && npm install && npm run build"
   },
   "dependencies": {
     "@mantine/core": "^7.17.2",
@@ -36,6 +38,7 @@
     "crypto": "crypto-browserify",
     "stream": "stream-browserify"
   },
+  
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.8",
     "@babel/preset-react": "^7.26.3",
