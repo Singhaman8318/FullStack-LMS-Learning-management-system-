@@ -2,6 +2,9 @@
   "build": {
     "builder": "NIXPACKS",
     "rootDir": "Server",
+    "environment": {
+      "NODE_VERSION": "18"
+    },
     "buildCommand": "npm install"
   },
   "deploy": {

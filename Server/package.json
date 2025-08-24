@@ -8,6 +8,10 @@
     "postinstall": "npm run install-client && npm run build-client",
     "start": "node server.js"
   },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "dependencies": {
     "express": "^4.21.2",
     "mongoose": "^8.12.1",
