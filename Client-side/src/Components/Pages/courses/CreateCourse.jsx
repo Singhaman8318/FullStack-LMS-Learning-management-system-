@@ -1,5 +1,5 @@
 
-// // imp
+
  import toast from "react-hot-toast";
 import { useState } from "react";
 import React from 'react'
@@ -49,10 +49,10 @@ function CreateCourse() {
   async function onFormSubmit(e) {
       e.preventDefault();
 
-    //   if(!userInput.title || !userInput.description || !userInput.category  || !userInput.createdBy) {
-    //       toast.error("All fields are mandatory");
-    //       return;
-    //   }
+      if(!userInput.title || !userInput.description || !userInput.category  || !userInput.createdBy) {
+          toast.error("All fields are mandatory");
+          return;
+      }
 
       const response = await dispatch(createNewCourse(userInput));
       if(response?.payload?.success) {
@@ -68,114 +68,6 @@ function CreateCourse() {
       }
   }
 
-//   return (
-//       <HomeLayout>
-//           <div className="flex items-center justify-center h-[100vh]">
-//               <form
-//                   onSubmit={onFormSubmit}
-//                   className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px_black] relative"
-//               >
-                  
-//                   <Link className="absolute top-8 text-2xl link text-accent cursor-pointer">
-//                       <AiOutlineArrowLeft />
-//                   </Link>
-
-//                   <h1 className="text-center text-2xl font-bold">
-//                       Create New Course
-//                   </h1>
-
-//                   <main className="grid grid-cols-2 gap-x-10">
-//                       <div className="gap-y-6">
-//                           <div>
-//                               <label htmlFor="image_uploads" className="cursor-pointer">
-//                                   {userInput.previewImage ? (
-//                                       <img 
-//                                           className="w-full h-44 m-auto border"
-//                                           src={userInput.previewImage}
-//                                       />
-//                                   ): (
-//                                       <div className="w-full h-44 m-auto flex items-center justify-center border">
-//                                           <h1 className="font-bold text-lg">Upload your course thumbnail</h1>
-//                                       </div>
-//                                   )}
-
-//                               </label>
-//                               <input 
-//                                   className="hidden"
-//                                   type="file"
-//                                   id="image_uploads"
-//                                   accept=".jpg, .jpeg, .png"
-//                                   name="thumbnail"
-//                                   onChange={handleImageUpload}
-//                               />
-//                           </div>
-                          
-//                             <div className="flex flex-col gap-1  "> 
-                               
-//                                <label htmlFor="title" className="text-large font-semibold ">Course tile </label>
-//                                <input type="text"
-//                                name="title"
-//                                required 
-//                                 id="title"
-//                                 placeholder="enter the course title "
-//                                 className="bg-transparent px-2 py-1 border"
-//                                 value={userInput.title}
-//                                 onChange={handleUserInput}
-//                                 />
-//                             </div>
-//                       </div>
-
-//                       <div className="flex flex-col gap-1  "> 
-                               
-//                                <label htmlFor="created" className="text-large font-semibold ">created by </label>
-//                                <input type="text"
-//                                name="createdBy"
-//                                required 
-//                                 id="created"
-//                                 placeholder="enter the course category "
-//                                 className="bg-transparent px-2 py-1 border"
-//                                 value={userInput.createdBy}
-//                                 onChange={handleUserInput}
-//                                 />
-
-//                           </div>
-
-//                           <div className="flex flex-col gap-1  "> 
-                               
-//                                <label htmlFor="category" className="text-large font-semibold ">category </label>
-//                                <input type="text"
-//                                name="category"
-//                                required 
-//                                 id="category"
-//                                 placeholder="enter the course category "
-//                                 className="bg-transparent px-2 py-1 border"
-//                                 value={userInput.category}
-//                                 onChange={handleUserInput}
-//                                 />
-
-//                           </div>
-
-
-//                           <div className="flex flex-col gap-1  "> 
-                               
-//                                <label htmlFor="description" className="text-large font-semibold ">description </label>
-//                                <input type="description"
-//                                name="description"
-//                                required 
-//                                 id="description"
-//                                 placeholder="enter the course description "
-//                                 className="bg-transparent px-2 py-1 border"
-//                                 value={userInput.description}
-//                                 onChange={handleUserInput}
-//                                 />
-
-//                           </div>
-//                   </main>
-//                      <button  className="w-full bg-yellow-500 " type="submit">Create course</button>
-//               </form>
-//           </div>
-//       </HomeLayout>
-//   )
 
 return (
     <HomeLayout>

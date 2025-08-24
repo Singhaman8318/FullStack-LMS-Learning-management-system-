@@ -128,11 +128,11 @@ function HomePage() {
         </div>
       </div>
 
-<section className='bg-zinc-400 dark:bg-zinc-50 relative rounded-3xl m-5 '>
+<section className='bg-zinc-600 dark:bg-zinc-50 relative rounded-3xl m-5 '>
         {/* <div className='absolute  inset-0 z-0'>
           
         </div> */}
-        <div className="flex flex-col justify-center text-center py-12 md:py-20 px-4 sm:px-6 relative z-10 ">
+        <div className="flex flex-col justify-center text-center bg-gray-600 rounded-xl  px-12 py-20  md:py-20 px-4 sm:px-6 relative z-10 ">
           <h2 className="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 text-zinc-900 dark:text-zinc-100 tracking-wide">Start Your Coding Journey</h2>
           <p className="text-base sm:text-xl text-zinc-700 dark:text-zinc-300 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">Learn coding step-by-step with India's most loved programming mentor.</p>
           <div className="flex justify-center">
