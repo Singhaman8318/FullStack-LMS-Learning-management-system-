@@ -1,4 +1,0 @@
-{
-  "build": "cd Client-side && npm install && npm run build",
-  "start": "cd Server && npm install && node app.js"
-}
