@@ -2,11 +2,12 @@
   "build": {
     "builder": "NIXPACKS",
     "rootDir": "Server",
+    "packs": ["nodejs"],
     "environment": {
       "NODE_VERSION": "18"
     }
   },
   "deploy": {
-    "startCommand": "node server.js"
+    "startCommand": "npm start --prefix Server"
   }
 }
