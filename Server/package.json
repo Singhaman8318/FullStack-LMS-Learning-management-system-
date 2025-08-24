@@ -7,7 +7,6 @@
     "build-client": "cd ../Client-side && npm run build",
     "postinstall": "npm run install-client && npm run build-client",
     "start": "node server.js"
-    
   },
   "dependencies": {
     "express": "^4.21.2",
