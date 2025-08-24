@@ -4,8 +4,7 @@
     "rootDir": "Server",
     "environment": {
       "NODE_VERSION": "18"
-    },
-    "buildCommand": "npm install"
+    }
   },
   "deploy": {
     "startCommand": "node server.js"
