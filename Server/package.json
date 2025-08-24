@@ -6,7 +6,8 @@
     "install-client": "cd ../Client-side && npm install",
     "build-client": "cd ../Client-side && npm run build",
     "postinstall": "npm run install-client && npm run build-client",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo \"No backend build step needed\""
   },
   "engines": {
     "node": "18.x",
