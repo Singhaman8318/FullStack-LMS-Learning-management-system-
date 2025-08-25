@@ -1,23 +1,7 @@
 {
-  "builds": [
-    {
-      "src": "server/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client"
-    }
-  ],
   "functions": {
-    "server/index.js": {
-      "includeFiles": "server/**/*"
+    "api/index.js": {
+      "includeFiles": "../{Models,Middleware}/*.js"
     }
   }
 }
