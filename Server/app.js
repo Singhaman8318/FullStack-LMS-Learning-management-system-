@@ -1,6 +1,4 @@
 
-
-
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -21,7 +19,7 @@ console.log("frontend url is the app.js", process.env.FRONTEND_URL);
 
 // Middleware
 app.use(cors({
-  origin: frontendURL,
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }))
 app.use(express.json());
