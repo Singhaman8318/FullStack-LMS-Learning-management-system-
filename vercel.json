@@ -14,5 +14,10 @@
       "src": "/(.*)",
       "dest": "client"
     }
-  ]
+  ],
+  "functions": {
+    "server/index.js": {
+      "includeFiles": "server/**/*"
+    }
+  }
 }
