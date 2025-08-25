@@ -1,17 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-     "build": "npm install --prefix ../clientSide && npm run build --prefix ../clientSide",
-     "install-client": "cd clientSide && npm install",
-    "install-server": "cd server && npm install",
-    "build": "npm run install-client && npm run build-client",
-    "build-client": "cd clientSide && npm run build",
-    "start": "node server/server.js"
+    "build": "npm install --prefix ../Client-side && npm run build --prefix ../Client-side",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -31,7 +27,4 @@
     "nodemon": "^3.1.9",
     "razorpay": "^2.9.6"
   }
-
 }
-
-

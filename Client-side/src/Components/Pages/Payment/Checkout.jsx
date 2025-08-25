@@ -103,7 +103,7 @@ const res =await dispatch(razorpayPaymentVerfiy(paymentDetails));
 
             {/* Price Section */}
             <p className="flex items-center justify-center gap-2 text-3xl font-bold text-orange-500">
-              ₹499 <span className="text-lg font-medium text-gray-400">/year</span>
+              ₹100 <span className="text-lg font-medium text-gray-400">/year</span>
             </p>
 
             {/* Refund Information */}
