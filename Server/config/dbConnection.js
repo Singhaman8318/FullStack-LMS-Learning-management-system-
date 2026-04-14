@@ -6,7 +6,7 @@ const connectionDb = async () => {
   try {
 
     const { connection } = await mongoose.connect(
-      process.env.MONGODB_URL || `mongodb://127.0.0.1:27017/lms`,
+      process.env.MONGODB_URL || `null`,
       console.log("db correctvurl is ", process.env.MONGODB_URL)
     );
 
