@@ -116,7 +116,7 @@ const login=async(req,res,next)=>{
          res.status(200).json({
             success:true,
             message:"user Logged in successfully ",
-             user
+            user
          })
     } catch (error) {
         return next(new AppError(error.message, 500))

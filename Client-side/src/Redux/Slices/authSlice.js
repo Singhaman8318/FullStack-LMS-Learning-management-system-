@@ -30,6 +30,8 @@ const initialState={
                 return JSON.parse(storedData)
              }
         } catch (error) {
+            console.log("error in parsing data from localstorage", error);
+            
             return error
         }
     })  ()
